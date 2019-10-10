@@ -1,7 +1,6 @@
 const rootNotes = require('./notes')
 const yargs = require('yargs')
 
-console.log(rootNotes.getNotes());
 //create add command
 yargs.command({
     command: 'add',
@@ -53,8 +52,15 @@ yargs.command({
 yargs.command({
     command:'read',
     description:'To read the tasks',
-    handler(){
-        console.log('To read the notes')
+    builder:{
+        title:{
+            description:'title of task',
+            type:'string',
+            require:true
+        }
+    },
+    handler(argv){
+        rootNotes.readNotes(argv.title);
     }
 })
 
