@@ -34,7 +34,8 @@ yargs.command({
             require:true
         }
     },  
-    handler:(argv)=>{
+    // Below can't be an arrow function....instead it can be a standard es6 function
+    handler(argv){
         rootNotes.removeNote(argv.title);
     }
 });
@@ -42,9 +43,9 @@ yargs.command({
 //create list commands
 yargs.command({
     command:'list',
-    description:'To retrieve all tasks',
-    handler:()=>{
-        console.log('Listing all the tasks')
+    description:'To retrieve all notes',
+    handler(){
+        rootNotes.listNotes();
     }
 });
 
@@ -52,7 +53,7 @@ yargs.command({
 yargs.command({
     command:'read',
     description:'To read the tasks',
-    handler:()=>{
+    handler(){
         console.log('To read the notes')
     }
 })

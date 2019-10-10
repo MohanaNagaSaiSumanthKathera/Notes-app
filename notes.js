@@ -1,7 +1,6 @@
 const fs = require('fs');
 const chalk = require('chalk');
-const getNotes=function(){
-    return "Your Notes....!"
+const getNotes=()=>{
 }
 
 const addNote=(title,body)=>{
@@ -17,9 +16,9 @@ const addNote=(title,body)=>{
             body: body
         });
         saveNotes(notes);
-        console.log('Note added!..')
+        console.log(chalk.green.inverse('Note added!..'));
     }else{
-        console.log('Title already taken!');
+        console.log(chalk.red.inverse('Title already taken!'));
     }
    
 }
@@ -56,8 +55,18 @@ const removeNote=(title)=>{
     }
     saveNotes(notesToKeep);
 }
+
+const listNotes=()=>{
+    console.log(chalk.inverse('Your Notes'));
+    const notes = loadNotes();
+    notes.forEach(note => {
+        console.log(note.title);        
+    });
+
+}
 module.exports = {
     getNotes : getNotes,
     addNote : addNote,
-    removeNote : removeNote
+    removeNote : removeNote,
+    listNotes : listNotes
 }
