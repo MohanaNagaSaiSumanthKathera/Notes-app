@@ -8,6 +8,8 @@ const addNote=(title,body)=>{
     });
    console.log(duplicateNotes);
 
+   debugger
+   
     if(duplicateNotes.length===0){
         notes.push({
             title :title,
