@@ -9,7 +9,7 @@ const addNote=(title,body)=>{
    console.log(duplicateNotes);
 
    debugger
-   
+
     if(duplicateNotes.length===0){
         notes.push({
             title :title,
@@ -60,7 +60,7 @@ const listNotes=()=>{
     console.log(chalk.inverse('Your Notes'));
     const notes = loadNotes();
     notes.forEach(note => {
-        console.log(note.title);        
+        console.log(note.title,note.body);        
     });
 
 }
@@ -71,7 +71,7 @@ const readNotes=(title)=>{
         return note.title === title;
     });
     if(note){
-        console.log(chalk.inverse(note.title));
+        console.log(chalk.inverse(note.body));
     }
     else{
         console.log(chalk.red.inverse('Title not found'));
