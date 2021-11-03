@@ -11,7 +11,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "fs": "0.0.1-security",
-    "validator": "^11.1.0",
+    "validator": "^13.7.0",
     "yargs": "^14.2.0"
   }
 }
